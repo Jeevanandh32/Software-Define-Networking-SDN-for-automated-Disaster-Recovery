@@ -1,0 +1,24 @@
+SDN-Disaster-Recovery/
+│
+├── README.md
+├── LICENSE (optional)
+├── /docs
+│   ├── architecture-diagram.png
+│   ├── process-flow.pdf
+│   └── implementation-guide.md
+├── /scripts
+│   ├── failover_automation.py
+│   ├── monitoring_script.py
+│   ├── openflow_rules.py
+│   └── recovery_simulation.py
+├── /configs
+│   ├── mininet_topology.py
+│   ├── opendaylight_config.json
+│   └── sdn_controller_rules.json
+├── /results
+│   ├── failover_test_logs.txt
+│   ├── recovery_simulation_report.pdf
+│   └── traffic_analysis.pcap
+└── /examples
+    ├── example_network_topology.py
+    └── sample_output.png
