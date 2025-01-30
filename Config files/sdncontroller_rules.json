@@ -1,0 +1,18 @@
+{
+  "flows": [
+    {
+      "id": "failover1",
+      "priority": "100",
+      "match": {
+        "in-port": "1"
+      },
+      "instructions": {
+        "apply-actions": {
+          "output-action": {
+            "output-node-connector": "2"
+          }
+        }
+      }
+    }
+  ]
+}
