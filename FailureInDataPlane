@@ -1,0 +1,25 @@
+class ActualFailureInDataPlane:
+    """
+    The failure ACTUALLY happens in the switch/data plane
+    """
+    
+    def what_happens_in_switch(self):
+        # When you run this Python/Mininet command:
+        mininet_command = "net.configLinkStatus('s1', 's2', 'down')"
+        
+        # What ACTUALLY happens in the DATA PLANE:
+        switch_s1_experience = {
+            "port_2_status": "DOWN",
+            "link_state": "NO_CARRIER",
+            "packets_on_port_2": "DROPPED",
+            "reality": "Port is actually down (not simulated from switch's view)"
+        }
+        
+        # Switch detects this REAL failure
+        switch_detection = """
+        1. Switch hardware/kernel detects: Port 2 link down
+        2. Switch generates: PORT_STATUS message
+        3. Switch sends to controller: Via OpenFlow (Southbound)
+        """
+        
+        return "Failure is REAL in the data plane"
