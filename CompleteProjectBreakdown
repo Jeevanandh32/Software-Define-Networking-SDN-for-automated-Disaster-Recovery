@@ -1,0 +1,37 @@
+class CompleteProjectBreakdown:
+    
+    def layer_responsibilities(self):
+        return {
+            "DATA_PLANE": {
+                "What": "Mininet switches (OVS)",
+                "Responsibilities": [
+                    "Experience actual port/link failures",
+                    "Send PORT_STATUS to controller",
+                    "Forward packets based on flow tables",
+                    "Drop packets when ports are down"
+                ],
+                "Failure_Reality": "Port failures are REAL here"
+            },
+            
+            "CONTROL_PLANE": {
+                "What": "OpenDaylight Controller",
+                "Responsibilities": [
+                    "Receive PORT_STATUS from switches",
+                    "Maintain topology view",
+                    "Translate REST to OpenFlow",
+                    "Push flows to switches"
+                ],
+                "Role": "Middleman/Translator"
+            },
+            
+            "APPLICATION_PLANE": {
+                "What": "Python disaster recovery script",
+                "Responsibilities": [
+                    "Monitor network state via REST",
+                    "Detect failures from topology",
+                    "Calculate backup paths (Dijkstra)",
+                    "Send recovery flows via REST"
+                ],
+                "Recovery_Logic": "All intelligence is HERE"
+            }
+        }
