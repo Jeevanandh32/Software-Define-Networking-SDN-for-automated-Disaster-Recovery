@@ -1,0 +1,19 @@
+def where_things_actually_happen():
+    """
+    Understanding the difference between CONTROL and OCCURRENCE
+    """
+    
+    failure_simulation = {
+        "Python_Mininet_Command": "net.configLinkStatus('s1', 's2', 'down')",
+        "What_This_Does": "Tells Mininet to simulate a failure",
+        "Where_Failure_Occurs": "IN THE DATA PLANE - Switch port actually goes down",
+        "What_Switches_Experience": "Real port failure (from their perspective)"
+    }
+    
+    recovery_logic = {
+        "Detection": "Switches detect port down (Data Plane)",
+        "Notification": "PORT_STATUS sent to ODL (Southbound)",
+        "Decision": "Python app decides recovery (Application Layer)",
+        "Implementation": "REST API to ODL (Northbound)",
+        "Execution": "New flows to switches (Southbound)"
+    }
